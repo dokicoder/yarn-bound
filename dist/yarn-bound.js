@@ -7,7 +7,7 @@
 		exports["YarnBound"] = factory();
 	else
 		root["YarnBound"] = factory();
-})(this, function() {
+})(this, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -3782,6 +3782,10 @@ class YarnBound {
       });
     }
 
+    this.jump(startAt);
+  }
+
+  jump(startAt) {
     this.generator = this.runner.run(startAt);
     this.advance();
   }
