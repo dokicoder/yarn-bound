@@ -7,7 +7,7 @@ export default function parseLine (node, locale) {
 }
 
 function parseCharacterLabel (node) {
-  const match = node.text.match(/^(\S+):\s+/)
+  const match = node.text.match(/^\s*(\S+):\s+/);
   if (match) {
     node.text = node.text.replace(match[0], '')
     node.markup.push({ name: 'character', properties: { name: match[1] } })
