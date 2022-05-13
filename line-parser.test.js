@@ -15,6 +15,13 @@ describe('line parser', () => {
     ])
   })
 
+  test('should handle a character when there is leading whitespace', () => {
+    const node = new TextResult('    JimmyJoe: Howdy!');
+    lineParser(node);
+    expect(node.text).toBe('Howdy!');
+    expect(node.markup).toEqual([{ name: 'character', properties: { name: 'JimmyJoe' } }]);
+  });
+
   test('should not recognize a character name with spaces', () => {
     const node = new TextResult('Billy Bob: Yeehaw')
     lineParser(node)
